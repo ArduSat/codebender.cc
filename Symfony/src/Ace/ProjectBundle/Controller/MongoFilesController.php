@@ -23,7 +23,7 @@ class MongoFilesController extends Controller
 	    $dm->persist($pf);
 	    $dm->flush();
 
-	    return json_encode(array("success" => true, "id" => serialize($pf->getId())));
+	    return json_encode(array("success" => true, "id" => $pf->getId()));
 	}
 	
 	public function deleteAction($id)
@@ -38,7 +38,8 @@ class MongoFilesController extends Controller
 	public function cloneAction($id)
 	{
 		$pf = $this->getProjectById($id);
-		$new_id = $this->createAction();
+		$new_id = json_decode($this->createAction(), true);
+		$new_id = $new_id["id"];
 		$new_pf = $this->getProjectById($new_id);
 		$new_pf->setFiles($pf->getFiles());
 		$new_pf->setFilesTimestamp($pf->getFilesTimestamp());
@@ -47,7 +48,7 @@ class MongoFilesController extends Controller
 		$dm = $this->dm;
 		$dm->persist($new_pf);
 		$dm->flush();
-		return $new_id;
+		return json_encode(array("success" => true, "id" => $new_id));
 	}
 	
 	public function listFilesAction($id)
@@ -131,7 +132,7 @@ class MongoFilesController extends Controller
 	public function getProjectById($id)
 	{
 	    $dm = $this->dm;
-		$pf = $dm->getRepository('AceProjectBundle:ProjectFiles')->find(unserialize($id));
+		$pf = $dm->getRepository('AceProjectBundle:ProjectFiles')->find($id);
 		if(!$pf)
 		{
 	        throw $this->createNotFoundException('No projectfiles found with id: '.$id);

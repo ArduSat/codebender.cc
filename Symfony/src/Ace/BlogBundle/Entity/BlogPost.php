@@ -6,7 +6,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="blog_posts")
  */
 class BlogPost
 {

@@ -17,7 +17,7 @@ function isvalidpass(pass)
 	var regnum = /.*\d/; //number
 	var reglet = /.*[a-z]/; //letters
 	var regcaps = /.*[A-Z]/; //caps
-	var regpunc = /.*[@#$%\!\^\&\*\(\)\_\+\=\~\<\>]/; //symbols
+	var regpunc = /.*[@#$%!^&*()\_\-\+=~<>,.?\/:;'"{}|`[\]]/; //symbols
 	var regexp = [regnum, reglet, regcaps, regpunc];
 	var sets = 0;
 
@@ -57,7 +57,7 @@ function oldpasscheck(id)
 				//setInterval(validation(id),100000);
 			}
 			else{
-				$(".oldpass-info").html('<i>Invalid Password,Password must contain characters from at least 3 of 4 characters sets([a..z][A..Z][0..9][~!@#$%^&*()_+=])</i>');
+				$(".oldpass-info").html('<i>Invalid Password,Password must contain characters from at least 3 of 4 characters sets([a..z][A..Z][0..9][`~!@#$%^&*()-_+={}[]|:;,.<>?/\"\'])</i>');
 			}
 
 		}
@@ -135,7 +135,7 @@ function validation(id)
 			if(s == 3)
 				$(".newpass-info").html('<i>Passwords must be 6-15 characters long</i>');
 			else
-				$(".newpass-info").html('<i>Password must contain characters from at least 3 of 4 characters sets([a..z][A..Z][0..9][~!@#$%^&*()_+=])</i>');
+				$(".newpass-info").html('<i>Password must contain characters from at least 3 of 4 characters sets([a..z][A..Z][0..9][`~!@#$%^&*()-_+={}[]|:;,.<>?/\"\'])</i>');
 
 			$(".confirmpass-info").html('');
 		}

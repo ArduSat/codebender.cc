@@ -1,0 +1,4 @@
+Ace\UserBundle\Entity\User:
+    properties:
+        plainPassword:
+            - Ace\UserBundle\Validator\Constraints\PasswordConstraint: ~

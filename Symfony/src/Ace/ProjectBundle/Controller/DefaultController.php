@@ -82,15 +82,24 @@ class DefaultController extends Controller
 
 		$new_project->setType("mongo");
 		$mongo = $this->mfc;
-		$id = $mongo->cloneAction($project->getProjectfilesId());
+		// die(var_dump($project->getProjectfilesId()));
+		$response = $mongo->cloneAction($project->getProjectfilesId());
+		$response = json_decode($response, true);
+		if($response["success"] == true)
+		{
+			$new_project->setProjectfilesId($response["id"]);
 
-		$new_project->setProjectfilesId($id);
+		    $em = $this->em;
+		    $em->persist($new_project);
+		    $em->flush();
 
-	    $em = $this->em;
-	    $em->persist($new_project);
-	    $em->flush();
+		    return new Response(json_encode(array("success" => true, "id" => $new_project->getId())));
+		}
+		else
+		{
+			return new Response(json_encode(array("success" => false, "id" => $id)));
+		}
 
-	    return new Response(json_encode(array("success" => true, "id" => $new_project->getId())));
 	}
 
 	public function renameAction($id, $new_name)
