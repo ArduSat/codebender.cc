@@ -1,0 +1,58 @@
+{% extends '::container.html.twig' %}
+{% block title "Plugins" %}
+{% block mainspan %}
+<div class="page-header">
+  <h1>The Plugins</h1>
+  <small>Downloading the correct plugin for your browser or Os!</small>  
+</div>
+
+<div>
+<small>
+	We are currently working on adding the codebender plugins in the browser stores.<br/>
+	Until then you can download them following the instructions bellow:
+</small>
+<br/>
+<a href="#firefox">Firefox</a>, <a href="#chrome">Chrome</a>, <a href="#other">Other</a>
+  
+	<h3 id="firefox">		
+		Firefox
+		<img src='https://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-512-noshadow.png' width="30px"/>
+		<small>(Window, Linux, Mac)</small>
+	</h3>
+	<ul>
+		<li>Firefox Addons are packaged in xpi format.<br/>
+		<li>Just Download the file from <a href="{{asset('codebender.xpi')}}">here</a> and your browser will ask you to install the plugin.<br/>
+		<img src="{{asset('pluginsImg/firefox-install-mess.jpg')}}" width="500px"><br/>
+		<li>Once Installed just restart your browser and you are ready!
+	</ul>
+	<h3 id="chrome">
+		Google Chrome
+		<img src='http://i.i.com.com/cnwk.1d/i/tim/2011/03/16/Chrome-logo-2011-03-16.jpg' width="30px">,
+		Chromium
+		<img src='http://i.i.com.com/cnwk.1d/i/tim/2011/03/08/product_logo_256.png' width="30px"/>
+		<small>(Window, Linux, Mac)</small>
+	</h3>
+	<ul>
+		<li>Chrome Extensions are packaged in crx format.<br/>
+		<li>Download the crx file from <a href="{{asset('codebender.crx')}}">here</a>.<br/>
+		<li>Open a new tab and type "chrome://extensions/" in the address bar.<br/>
+		<img src="{{asset('pluginsImg/chrome-extensions.jpg')}}" width="500px"><br/>
+		<li>Then just drag and drop the file you downloaded anywhere in the page.<br/>
+		<img src="{{asset('pluginsImg/chrome-install.jpg')}}" width="500px"><br/>
+		<li>Chrome will ask for you confirmation to install the extension.<br/>
+		<img src="{{asset('pluginsImg/chrome-install-mess.jpg')}}" width="500px"><br/>
+		<li>Once installed you are ready to work!
+	</ul>
+	<h3 id="other">
+		Other Windows Browsers 
+		<img src='http://media.opera.com/media/images/icon/Opera_512x512.png' width="30px">
+		<img src='https://upload.wikimedia.org/wikipedia/en/6/61/Apple_Safari.png' width="30px">
+	</h3>
+	<ul>
+		<li>On Windows you can also use our plugin with Opera and Safari.<br/>
+		<li>You can download the universal msi installer from <a href="{{asset('codebender.msi')}}">here</a>.<br/>
+		<li>Once you have installed the plugin all browsers on windows will be able to use the plugin.<br/>
+	</ul>
+</div>
+
+{% endblock %}

@@ -148,5 +148,10 @@ class DefaultController extends Controller
 		}
 		return new Response("OK");
 	}
-	
+
+	public function pluginAction()
+	{
+                return $this->render('AceStaticBundle:Default:plugin.html.twig', array());
+	}
+
 }
