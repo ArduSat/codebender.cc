@@ -16,11 +16,11 @@
 
 [doctrine-dbal]
     git=http://github.com/doctrine/dbal.git
-    version=2.1.6
+    version=2.2.0
 
 [doctrine]
     git=http://github.com/doctrine/doctrine2.git
-    version=2.1.6
+    version=2.2.0
 
 [swiftmailer]
     git=http://github.com/swiftmailer/swiftmailer.git
@@ -74,6 +74,6 @@
     git=http://github.com/doctrine/mongodb-odm.git
 
 [DoctrineMongoDBBundle]
-    git=http://github.com/symfony/DoctrineMongoDBBundle.git
+    git=http://github.com/doctrine/DoctrineMongoDBBundle.git
     target=/bundles/Symfony/Bundle/DoctrineMongoDBBundle
-    version=v2.0.0
+    version=v2.2.0
