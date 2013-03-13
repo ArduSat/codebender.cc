@@ -1,8 +1,10 @@
 #!/bin/bash
 CACHE_DIR=Symfony/app/cache
 LOG_DIR=Symfony/app/logs
-# echo date.timezone = America/Los_Angeles >> /etc/php5/apache2/php.ini
-# echo date.timezone = America/Los_Angeles >> /etc/php5/cli/php.ini
+echo date.timezone = America/Los_Angeles >> /etc/php5/apache2/php.ini
+echo date.timezone = America/Los_Angeles >> /etc/php5/cli/php.ini
+echo extension=mongo.so >> /etc/php5/cli/php.ini
+echo extension=mongo.so >> /etc/php5/apache/php.ini
 apt-get install apache2 php5-sqlite php-apc php5-intl php-pear php5-dev
 if [ ! -d $CACHE_DIR ]; then
 	mkdir -p $CACHE_DIR
