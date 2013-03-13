@@ -4,17 +4,20 @@ LOG_DIR=Symfony/app/logs
 
 # INSTALL PACKAGES
 apt-get install apache2 php5-sqlite php-apc php5-intl php-pear php5-dev curl libcurl3 libcurl3-dev php5-curl
-pecl install mongo-1.2.12
+pecl install mongo
+pecl install curl
 
 # UPDATE CONFS
-echo date.timezone = America/Los_Angeles >> /etc/php5/apache2/php.ini
-echo date.timezone = America/Los_Angeles >> /etc/php5/cli/php.ini
-echo extension=mongo.so >> /etc/php5/cli/php.ini
-echo extension=mongo.so >> /etc/php5/apache2/php.ini
-echo extension=php_curl.so >> /etc/php5/cli/php.ini
-echo extension=php_curl.so >> /etc/php5/apache2/php.ini
-echo extension=pdo.so >> /etc/php5/cli/php.ini
-echo extension=pdo_sqlite.so >> /etc/php5/apache2/php.ini
+echo date.timezone = America/Los_Angeles 	>> /etc/php5/cli/php.ini
+echo date.timezone = America/Los_Angeles 	>> /etc/php5/apache2/php.ini
+echo extension=mongo.so 			>> /etc/php5/cli/php.ini
+echo extension=mongo.so 			>> /etc/php5/apache2/php.ini
+echo extension=curl.so 				>> /etc/php5/cli/php.ini
+echo extension=curl.so 				>> /etc/php5/apache2/php.ini
+echo extension=pdo.so 				>> /etc/php5/cli/php.ini
+echo extension=pdo.so 				>> /etc/php5/apache2/php.ini
+echo extension=pdo_sqlite.so 			>> /etc/php5/cli/php.ini
+echo extension=pdo_sqlite.so 			>> /etc/php5/apache2/php.ini
 
 # INITIALIZING APP STRUCTURE
 if [ ! -d $CACHE_DIR ]; then
